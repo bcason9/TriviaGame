@@ -2,7 +2,7 @@ $(document).ready(function () {
     var options = [
         {
             question: "What is the name of Darth Vader's Super Star Destroyer?",
-            choice: ["Devastator", "Executor", "Invisibe Hand", "Resurgence"],
+            choice: ["Devastator", "Executor", "Invisible Hand", "Resurgence"],
             answer: 1,
             photo: "assets/images/SSD.png"
         },
@@ -29,6 +29,48 @@ $(document).ready(function () {
             choice: ["1000m", "1500m", "1600m", "2000m"],
             answer: 2,
             photo: "assets/images/ISD.jpg"
+        },
+        {
+            question: "Who is Dark Helmet's right hand man?",
+            choice: ["Colonel Sandurz", "Major Payne", "Darph Nader", "Barf"],
+            answer: 0,
+            photo: "assets/images/SpaceballsSandurz.jpg"
+        },
+        {
+            question: "Who is the lead actor in Galaxy Quest?",
+            choice: ["William Shatner", "Peter Cushing", "Gary Busey", "Tim Allen"],
+            answer: 3,
+            photo: "assets/images/timallen.jpg"
+        },
+        {
+            question: "What planet does the film Avatar take place on?",
+            choice: ["Romulus", "Pandora", "Anatolia", "Krypton"],
+            answer: 1,
+            photo: "assets/images/Pandora.jpg"
+        },
+        {
+            question: "What is the core doctrine of the Sith Order?",
+            choice: ["World Domination", "The Truman Doctrine", "The Rule of Two", "Good is Dumb"],
+            answer: 2,
+            photo: "assets/images/SidiousVaderPromo.jpg"
+        },
+        {
+            question: "Which Star Trek film features both Captain Kirk and Captain Picard?",
+            choice: ["First Contact", "Insurrection", "Into Darkness", "Generations"],
+            answer: 3,
+            photo: "assets/images/enterpriseD.jpg"
+        },
+        {
+            question: "What level of hyperspeed did Spaceball One achieve while pursuing Lone Star?",
+            choice: ["Warp Speed", "Impressive Speed", "Ludicrous Speed", "Not Too Shabby Speed"],
+            answer: 2,
+            photo: "assets/images/ludicrousspeed.jpg"
+        },
+        {
+            question: "Which of the following is a character in the spoof film Hardware Wars?",
+            choice: ["Fluke Starbucker", "Ham Salad", "Chewchilla the Wookie Monster", "All of the Above"],
+            answer: 3,
+            photo: "assets/images/hardwarewars.jpg"
         }];
 
     var correctCount = 0;
@@ -105,28 +147,22 @@ $(document).ready(function () {
         index = Math.floor(Math.random() * options.length);
         pick = options[index];
 
-        //	if (pick.shown) {
-        //		//recursive to continue to generate new index until one is chosen that has not shown in this game yet
-        //		displayQuestion();
-        //	} else {
-        //		console.log(pick.question);
-        //iterate through answer array and display
         $("#questionblock").html("<h5>" + pick.question + "</h5>");
         for (var i = 0; i < pick.choice.length; i++) {
             var userChoice = $("<div>");
             userChoice.addClass("answerchoice");
             userChoice.html(pick.choice[i]);
-            //assign array position to it so can check answer
+            
             userChoice.attr("data-guessvalue", i);
             $("#answerblock").append(userChoice);
-            //		}
+            
         }
 
 
 
         //click function to select answer and outcomes
         $(".answerchoice").on("click", function () {
-            //grab array position from userGuess
+            
             userGuess = parseInt($(this).attr("data-guessvalue"));
 
             //correct guess or wrong guess outcomes
@@ -179,7 +215,7 @@ $(document).ready(function () {
             timer = 20;
 
             //run the score screen if all questions answered
-            if ((wrongCount + correctCount + unanswerCount) === qCount) {
+            if ((wrongCount + correctCount + unanswerCount) === 5) {
                 $("#questionblock").empty();
 
                 winOrLoss();
@@ -192,7 +228,7 @@ $(document).ready(function () {
                 displayQuestion();
 
             }
-        }, 2000);
+        }, 3000);
 
 
     }
