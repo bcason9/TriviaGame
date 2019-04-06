@@ -37,13 +37,13 @@ let questions = [
     }
 ];
 
-// create some variables
+
 
 const lastQuestion = questions.length - 1;
 let runningQuestion = 0;
 let count = 0;
-const questionTime = 10; // 10s
-const gaugeWidth = 150; // 150px
+const questionTime = 10; 
+const gaugeWidth = 150; 
 const gaugeUnit = gaugeWidth / questionTime;
 let TIMER;
 let score = 0;
@@ -61,7 +61,7 @@ function renderQuestion(){
 
 document.getElementById("start").onclick(startQuiz)
 
-// start quiz
+
 function startQuiz(){
     start.style.display = "none";
     renderQuestion();
