@@ -1,41 +1,12 @@
-.answerchoice {
-	border: 1px solid black;
-	width: 200px;
-	color: white;
-  text-align: center;
-  margin: 10px auto;
-  font-size: 17px;
-  background-color: blue;
-
-}
-
-img {
-  max-height: 200px;
-  width: auto;
-}
-
-#answerblock {
-  text-align: center;
-}
-
-#questionblock {
-  text-align: center;
-  font-weight: bold;
-}
-
-#reset {
-  visibility: visible;
-}
-
-body {
-  background-image: url("../images/SpaceBackground.jpg");
-}
-
 h1 {
   font-weight: bolder;
   font-size: 75px;
   font-family: 'Righteous', cursive;
   color: yellow;
+}
+
+h6 {
+  color: red;
 }
 
 #correct {
@@ -49,10 +20,17 @@ h1 {
   margin: 10px;
   font-weight: bold;
   color: red;
-  font-size: 30px;
+  font-size: 20px;
 }
 
-.wrapper {
+#time-up {
+  margin: 10px;
+  font-weight: bold;
+  color: red;
+  font-size: 20px;
+}
+
+#main-content {
   margin: 10px auto;
   background-color: rgba(255, 255, 255, 0.589);
   border: 2px solid black;
@@ -66,7 +44,7 @@ h1 {
   bottom: -15px;
 }
 
-.container {
+#win-loss-div {
     width: 300px;
     height: 110px;
     background-color: rgba(255, 255, 255, 0.589);
@@ -74,6 +52,33 @@ h1 {
   
 }
 
-h6 {
-  color: red;
+.answerchoice {
+	border: 1px solid black;
+	width: 200px;
+	color: white;
+  text-align: center;
+  margin: 10px auto;
+  font-size: 16px;
+  background-color: blue;
+}
+
+img {
+  max-height: 200px;
+  width: auto;
+}
+
+
+#reset {
+  visibility: visible;
+}
+
+body {
+  background-image: url("../images/SpaceBackground.jpg");
+}
+
+@media screen and (max-width: 550px) {
+  #win-loss-div {
+    margin-left: 205px;
+
+}
 }

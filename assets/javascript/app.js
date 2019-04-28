@@ -1,4 +1,19 @@
 $(document).ready(function () {
+    var correctCount = 0;
+    var wrongCount = 0;
+    var unansweredCount = 0;
+    var wins = 0;
+    var losses = 0;
+    var timer = 20;
+    var intervalId;
+    var userGuess = "";
+    var running = false;
+    var pick;
+    var index;
+    var newArray = [];
+    var holder = [];
+   
+
     var options = [
         {
             question: "What is the name of Darth Vader's Super Star Destroyer?",
@@ -73,20 +88,7 @@ $(document).ready(function () {
             photo: "assets/images/hardwarewars.jpg"
         }];
 
-    var correctCount = 0;
-    var wrongCount = 0;
-    var unansweredCount = 0;
-    var timer = 20;
-    var intervalId;
-    var userGuess = "";
-    var running = false;
-    var qCount = options.length;
-    var pick;
-    var index;
-    var newArray = [];
-    var holder = [];
-    var wins = 0;
-    var losses = 0;
+    
 
 
 
@@ -114,24 +116,27 @@ $(document).ready(function () {
 
     })
 
-    //timer function
-    function runTimer() {
-        if (!running) {
-            intervalId = setInterval(decrement, 1000);
-            running = true;
-        }
-    }
+    
     //timer countdown
     function decrement() {
-        $("#timeleft").html("<h5>Time remaining: " + timer + "</h5>");
         timer--;
+        $("#timeleft").html("<h5>Time remaining: " + timer + "</h5>");
+        
 
         //stop timer  0
         if (timer === 0) {
             unansweredCount++;
             stop();
-            $("#answer").html("<p>Time's up! The correct answer is: " + pick.choice[pick.answer] + "</p>");
+            $("#answer").html("<p id='time-up'>Time's up! The correct answer is: " + pick.choice[pick.answer] + "</p>");
             hidepicture();
+        }
+    }
+
+    //timer function
+    function runTimer() {
+        if (!running) {
+            intervalId = setInterval(decrement, 1000);
+            running = true;
         }
     }
 
@@ -144,6 +149,8 @@ $(document).ready(function () {
         
         index = Math.floor(Math.random() * options.length);
         pick = options[index];
+
+        $("#timeleft").html("<h5>Time remaining: " + timer + "</h5>");
 
         $("#question").html("<h5>" + pick.question + "</h5>");
         for (var i = 0; i < pick.choice.length; i++) {
@@ -179,7 +186,7 @@ $(document).ready(function () {
         })
     }
 
-    function winOrLoss() {
+    function winLoss() {
         if (correctCount > wrongCount) {
             wins++
             $("#question").html("<h3>Game Over!  You Win! </h3>");
@@ -214,7 +221,7 @@ $(document).ready(function () {
             if ((wrongCount + correctCount + unansweredCount) === 5) {
                 $("#question").empty();
 
-                winOrLoss();
+                winLoss();
                 correctCount = 0;
                 wrongCount = 0;
                 unansweredCount = 0;
