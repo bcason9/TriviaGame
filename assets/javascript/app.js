@@ -28,12 +28,6 @@ $(document).ready(function () {
             photo: "assets/images/spock.jpg"
         },
         {
-            question: "What kind of ship does Lone Star fly in Spaceballs?",
-            choice: ["Delorean", "Winnebago", "Blockade Runner", "Flying Saucer"],
-            answer: 1,
-            photo: "assets/images/Spaceballs.jpg"
-        },
-        {
             question: "Who is the Captain of the Enterprise-D?",
             choice: ["Jean-Luc Picard", "William Riker", "James T. Kirk", "Bones McCoy"],
             answer: 0,
@@ -74,12 +68,6 @@ $(document).ready(function () {
             choice: ["First Contact", "Insurrection", "Into Darkness", "Generations"],
             answer: 3,
             photo: "assets/images/enterpriseD.jpg"
-        },
-        {
-            question: "What level of hyperspeed did Spaceball One achieve while pursuing Lone Star?",
-            choice: ["Warp Speed", "Impressive Speed", "Ludicrous Speed", "Not Too Shabby Speed"],
-            answer: 2,
-            photo: "assets/images/ludicrousspeed.jpg"
         },
         {
             question: "Which of the following is a character in the spoof film Hardware Wars?",
